@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>More Courses | Edu-X</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f6f6;
+    }
+
+    header {
+      background: #2b6777;
+      color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .register-btn {
+      background-color: #f2545b;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .more-courses-section {
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .more-courses-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #2b6777;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .course-box {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .course-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .course-box h3 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .course-box p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Edu-X</div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="scholarships.html">Scholarships</a>
+      <a href="campuses.html">Our Campuses</a>
+      <a href="contact.html">Contact</a>
+      <a href="register.html"><button class="register-btn">Register</button></a>
+    </nav>
+  </header>
+
+  <section class="more-courses-section">
+    <h2>More Popular Courses</h2>
+    <div class="course-grid">
+      <div class="course-box">
+        <h3>Artificial Intelligence</h3>
+        <p>Learn advanced AI techniques including NLP, neural networks, and more.</p>
+      </div>
+      <div class="course-box">
+        <h3>Cloud Computing</h3>
+        <p>Master AWS, Azure, and cloud infrastructure for modern applications.</p>
+      </div>
+      <div class="course-box">
+        <h3>Game Development</h3>
+        <p>Design, develop, and launch games using Unity and Unreal Engine.</p>
+      </div>
+      <div class="course-box">
+        <h3>Mobile App Development</h3>
+        <p>Create iOS and Android apps using Flutter, React Native, and Kotlin.</p>
+      </div>
+      <div class="course-box">
+        <h3>Blockchain Technology</h3>
+        <p>Understand blockchain, smart contracts, and cryptocurrency applications.</p>
+      </div>
+      <div class="course-box">
+        <h3>UI/UX Design</h3>
+        <p>Design stunning user interfaces and experiences using Figma & Adobe XD.</p>
+      </div>
+    </div>
+  </section>
+<!-- Go Back Button -->
+<button onclick="history.back()" style="
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #2b6777;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 999;
+">
+  ⬅ Go Back
+</button>
+
+</body>
+</html>

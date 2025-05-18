@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enroll in a Course - Edu-X</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f9fb;
+    }
+
+    header {
+      background: #2b6777;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .navbar a {
+      color: white;
+      margin-left: 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .register-btn {
+      background-color: #f2545b;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .enroll-section {
+      padding: 60px 20px;
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin-top: 40px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #2b6777;
+      margin-bottom: 30px;
+    }
+
+    .enroll-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .enroll-form input,
+    .enroll-form select {
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .enroll-form button {
+      background-color: #2b6777;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .enroll-form button:hover {
+      background-color: #f2545b;
+    }
+
+    .form-response {
+      text-align: center;
+      margin-top: 15px;
+      color: green;
+      font-weight: 500;
+    }
+
+    .clock {
+      position: fixed;
+      bottom: 10px;
+      right: 20px;
+      background: #2b6777;
+      color: white;
+      padding: 5px 15px;
+      border-radius: 15px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Edu-X</div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="scholarships.html">Scholarships</a>
+      <a href="campuses.html">Our Campuses</a>
+      <a href="contact.html">Contact</a>
+      <a href="enroll.html"><button class="register-btn">Enroll</button></a>
+    </nav>
+  </header>
+
+  <section class="enroll-section">
+    <h2 class="section-title">Enroll in a Course</h2>
+    <form class="enroll-form" onsubmit="return submitEnrollment()">
+      <input type="text" id="enroll-name" placeholder="Your Full Name" required />
+      <input type="email" id="enroll-email" placeholder="Email Address" required />
+      <input type="tel" id="enroll-phone" placeholder="Phone Number" required />
+      <select id="enroll-course" required>
+        <option value="">Select Course</option>
+        <option>UI/UX Design</option>
+        <option>AI & Machine Learning</option>
+        <option>Blockchain Basics</option>
+        <option>Cloud Computing</option>
+        <option>Graphic Design</option>
+      </select>
+      <button type="submit">Submit Enrollment</button>
+    </form>
+    <p id="enroll-response" class="form-response"></p>
+  </section>
+
+  <div class="clock" id="clock">00:00</div>
+
+  <script>
+    function submitEnrollment() {
+      const name = document.getElementById("enroll-name").value;
+      const course = document.getElementById("enroll-course").value;
+
+      if (name && course) {
+        document.getElementById("enroll-response").textContent =
+          "Thank you " + name + "! You have been enrolled in " + course + ".";
+      } else {
+        document.getElementById("enroll-response").textContent =
+          "Please fill in all fields.";
+      }
+
+      return false; // prevent actual form submission
+    }
+
+    // Clock update
+    setInterval(() => {
+      const now = new Date();
+      const time = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      document.getElementById("clock").textContent = time;
+    }, 1000);
+  </script>
+  <!-- Go Back Button -->
+<button onclick="history.back()" style="
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #2b6777;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 999;
+">
+  ⬅ Go Back
+</button>
+
+</body>
+</html>

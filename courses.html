@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Explore Courses | Edu-X</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    header {
+      background: #2b6777;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .navbar a {
+      color: white;
+      margin-left: 15px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .register-btn {
+      background-color: #f2545b;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .courses-section {
+      padding: 60px 20px;
+      background: #f7f7f7;
+      text-align: center;
+    }
+
+    .courses-section h2 {
+      font-size: 2.5rem;
+      color: #2b6777;
+      margin-bottom: 30px;
+    }
+
+    .course-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .course-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+    }
+
+    .course-card h3 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .course-card p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    .course-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .course-card button {
+      background-color: #2b6777;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .course-card button:hover {
+      background-color: #f2545b;
+    }
+
+    .enroll-btn {
+      background-color: #4caf50 !important;
+    }
+
+    .enroll-btn:hover {
+      background-color: #388e3c !important;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 60px;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #2b6777;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Edu-X</div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="scholarships.html">Scholarships</a>
+      <a href="campuses.html">Our Campuses</a>
+      <a href="contact.html">Contact</a>
+      <a href="register.html"><button class="register-btn">Register</button></a>
+    </nav>
+  </header>
+
+  <section class="courses-section">
+    <h2>Explore Our Top Courses</h2>
+    <div class="course-cards">
+      <!-- Core Courses -->
+      <div class="course-card">
+        <h3>Web Development</h3>
+        <p>Master HTML, CSS, JavaScript and backend development with hands-on projects.</p>
+        <div class="course-buttons">
+          <button onclick="openModal('web-dev')">Learn More</button>
+          <a class="enroll-btn" href="enroll.html" style="text-decoration: none; display: inline-block; padding: 10px 18px; background-color: #4caf50; color: white; border-radius: 20px;">Enroll Now</a>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <h3>Data Science</h3>
+        <p>Learn data analysis, visualization, and machine learning using Python and R.</p>
+        <div class="course-buttons">
+          <button onclick="openModal('data-science')">Learn More</button>
+          <a class="enroll-btn" href="enroll.html" style="text-decoration: none; display: inline-block; padding: 10px 18px; background-color: #4caf50; color: white; border-radius: 20px;">Enroll Now</a>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <h3>Digital Marketing</h3>
+        <p>Become an expert in SEO, content marketing, and social media strategies.</p>
+        <div class="course-buttons">
+          <button onclick="openModal('marketing')">Learn More</button>
+          <a class="enroll-btn" href="enroll.html" style="text-decoration: none; display: inline-block; padding: 10px 18px; background-color: #4caf50; color: white; border-radius: 20px;">Enroll Now</a>
+      </div>
+      </div>
+
+      <div class="course-card">
+        <h3>Cybersecurity</h3>
+        <p>Explore ethical hacking, network security, and online protection practices.</p>
+        <div class="course-buttons">
+          <button onclick="openModal('cyber')">Learn More</button>
+          <a class="enroll-btn" href="enroll.html" style="text-decoration: none; display: inline-block; padding: 10px 18px; background-color: #4caf50; color: white; border-radius: 20px;">Enroll Now</a>
+
+        </div>
+      </div>
+
+      <div class="course-card">
+        <h3>Mobile App Development</h3>
+        <p>Build Android & iOS apps using Flutter or React Native in this course.</p>
+        <div class="course-buttons">
+          <button onclick="openModal('mobile')">Learn More</button>
+          <a class="enroll-btn" href="enroll.html" style="text-decoration: none; display: inline-block; padding: 10px 18px; background-color: #4caf50; color: white; border-radius: 20px;">Enroll Now</a>
+
+        </div>
+      </div>
+
+      <!-- Additional Courses -->
+      <div class="course-card">
+        <h3>UI/UX Design</h3>
+        <p>Create beautiful and user-friendly interfaces using Figma & Adobe XD.</p>
+        <div class="course-buttons">
+          <button onclick="openModal('uiux')">Learn More</button>
+          <a class="enroll-btn" href="enroll.html" style="text-decoration: none; display: inline-block; padding: 10px 18px; background-color: #4caf50; color: white; border-radius: 20px;">Enroll Now</a>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <h3>AI & Machine Learning</h3>
+        <p>Dive into artificial intelligence, neural networks, and deep learning.</p>
+        <div class="course-buttons">
+          <button onclick="openModal('ai')">Learn More</button>
+          <a class="enroll-btn" href="enroll.html" style="text-decoration: none; display: inline-block; padding: 10px 18px; background-color: #4caf50; color: white; border-radius: 20px;">Enroll Now</a>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <h3>Blockchain Basics</h3>
+        <p>Understand the foundation of blockchain, crypto, and smart contracts.</p>
+        <div class="course-buttons">
+          <button onclick="openModal('blockchain')">Learn More</button>
+          <a class="enroll-btn" href="enroll.html" style="text-decoration: none; display: inline-block; padding: 10px 18px; background-color: #4caf50; color: white; border-radius: 20px;">Enroll Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div id="modal-web-dev" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('web-dev')">&times;</span>
+      <h2>Web Development</h2>
+      <ul>
+        <li>HTML, CSS, JavaScript</li>
+        <li>React, Node.js, Express</li>
+        <li>MongoDB & MySQL</li>
+        <li>GitHub & Vercel Deployment</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-data-science" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('data-science')">&times;</span>
+      <h2>Data Science</h2>
+      <ul>
+        <li>Python, Pandas, NumPy</li>
+        <li>Visualization Tools</li>
+        <li>Machine Learning</li>
+        <li>R Language Projects</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-marketing" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('marketing')">&times;</span>
+      <h2>Digital Marketing</h2>
+      <ul>
+        <li>SEO & Analytics</li>
+        <li>Content & Email Campaigns</li>
+        <li>Paid Ads Strategy</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-cyber" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('cyber')">&times;</span>
+      <h2>Cybersecurity</h2>
+      <ul>
+        <li>Ethical Hacking</li>
+        <li>Network & Security Tools</li>
+        <li>Cyber Laws</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-mobile" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('mobile')">&times;</span>
+      <h2>Mobile App Development</h2>
+      <ul>
+        <li>Flutter, Dart</li>
+        <li>React Native</li>
+        <li>Firebase Integration</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-uiux" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('uiux')">&times;</span>
+      <h2>UI/UX Design</h2>
+      <ul>
+        <li>Figma, Adobe XD</li>
+        <li>User Flow & Wireframes</li>
+        <li>Design Systems</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-ai" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('ai')">&times;</span>
+      <h2>AI & Machine Learning</h2>
+      <ul>
+        <li>AI Concepts & Neural Nets</li>
+        <li>Deep Learning Frameworks</li>
+        <li>Hands-on Projects</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="modal-blockchain" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('blockchain')">&times;</span>
+      <h2>Blockchain Basics</h2>
+      <ul>
+        <li>Distributed Ledgers</li>
+        <li>Smart Contracts</li>
+        <li>Crypto Ecosystem</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById("modal-" + id).style.display = "block";
+    }
+    function closeModal(id) {
+      document.getElementById("modal-" + id).style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll('.modal');
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    }
+  </script>
+  <!-- Go Back Button -->
+<button onclick="history.back()" style="
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #2b6777;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 999;
+">
+  ⬅ Go Back
+</button>
+
+</body>
+</html>
